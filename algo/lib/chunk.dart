@@ -11,4 +11,17 @@ class Chunk {
       return list.getRange(start, min(end, list.length)).toList();
     });
   }
+
+  static List<List<T>> chunkV2<T>(List<T> list, int size) {
+    List<List<T>> chunked = [];
+    for (T element in list) {
+      if (chunked.isEmpty || chunked.last.length == size) {
+        chunked.add([element]);
+      } else {
+        chunked.last.add(element);
+      }
+    }
+
+    return chunked;
+  }
 }
