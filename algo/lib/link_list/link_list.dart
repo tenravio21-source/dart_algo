@@ -71,4 +71,15 @@ class LinkList<T> {
     length++;
     return true;
   }
+
+  Node<T>? popFirst() {
+    if (length == 0) return null;
+    Node<T>? temp = head;
+    head = head!.next;
+    length--;
+    if (length == 0) {
+      tail = null;
+    }
+    return temp;
+  }
 }
