@@ -91,4 +91,54 @@ class LinkList<T> {
     }
     return temp;
   }
+
+  bool setValue(int index, T value) {
+    Node<T>? node = get(index);
+    if (node != null) {
+      node.data = value;
+      return true;
+    }
+    return false;
+  }
+
+  bool insert(int index, T value) {
+    if (index < 0 || index > length) return false;
+    if (index == 0) return prepend(value);
+    if (index == length) return append(value);
+    Node<T> node = Node<T>(value);
+    Node<T>? temp = get(index - 1);
+    node.next = temp!.next;
+    temp.next = node;
+    length++;
+    return true;
+  }
+
+  Node<T>? remove(int index) {
+    if (index < 0 || index >= length) return null;
+    if (index == 0) return popFirst();
+    if (index == length - 1) return pop();
+    Node<T>? prev = get(index - 1);
+    Node<T>? temp = prev!.next;
+    prev.next = temp!.next;
+    temp.next = null;
+    length--;
+    return temp;
+  }
+
+  bool reverse() {
+    if (length <= 1) return true;
+    Node<T>? temp = head;
+    head = tail;
+    tail = temp;
+
+    Node<T>? after = temp!.next;
+    Node<T>? before;
+    for (int i = 0; i < length; i++) {
+      after = temp?.next;
+      temp?.next = before;
+      before = temp;
+      temp = after;
+    }
+    return true;
+  }
 }
