@@ -38,4 +38,23 @@ class LinkList<T> {
     length++;
     return true;
   }
+
+  Node<T>? pop() {
+    if (length == 0) return null;
+    Node<T>? temp = head;
+    Node<T>? prev = head;
+
+    while (temp!.next != null) {
+      prev = temp;
+      temp = temp.next;
+    }
+    prev!.next = null;
+    tail = prev;
+    length--;
+    if (length == 0) {
+      head = null;
+      tail = null;
+    }
+    return temp;
+  }
 }
