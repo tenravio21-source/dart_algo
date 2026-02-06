@@ -57,4 +57,18 @@ class LinkList<T> {
     }
     return temp;
   }
+
+  bool prepend(T data) {
+    Node<T> node = Node<T>(data);
+
+    if (head == null) {
+      head = node;
+      tail = node;
+    } else {
+      node.next = head;
+      head = node;
+    }
+    length++;
+    return true;
+  }
 }
