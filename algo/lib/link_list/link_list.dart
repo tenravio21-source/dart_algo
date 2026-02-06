@@ -86,7 +86,7 @@ class LinkList<T> {
   Node<T>? get(int index) {
     if (index < 0 || index >= length) return null;
     Node<T>? temp = head;
-    while (temp?.next != null) {
+    for (int i = 0; i < index; i++) {
       temp = temp!.next;
     }
     return temp;
