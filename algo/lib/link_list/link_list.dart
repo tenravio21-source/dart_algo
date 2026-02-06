@@ -82,4 +82,13 @@ class LinkList<T> {
     }
     return temp;
   }
+
+  Node<T>? get(int index) {
+    if (index < 0 || index >= length) return null;
+    Node<T>? temp = head;
+    while (temp?.next != null) {
+      temp = temp!.next;
+    }
+    return temp;
+  }
 }
