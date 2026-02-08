@@ -18,7 +18,3 @@ class Insertion {
     return myList;
   }
 }
-
-void main() {
-  print(Insertion.insertionSort([4, 2, 6, 5, 1, 3])); // [1, 2, 3, 4, 5, 6]
-}

@@ -11,8 +11,4 @@ class Bubble {
     }
     return myList;
   }
-
-  void main() {
-    print(bubbleSort([1, 2, 5, 7, 6])); // Output: [1, 2, 5, 6, 7]
-  }
 }
