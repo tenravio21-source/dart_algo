@@ -14,4 +14,18 @@ class Palindrome {
     String reversed = str.split('').reversed.join('');
     return str == reversed;
   }
+
+  static bool isPalindromeTwoPointer(String text) {
+    int left = 0;
+    int right = text.length - 1;
+
+    while (left < right) {
+      if (text[left] != text[right]) {
+        return false;
+      }
+      left++;
+      right--;
+    }
+    return true;
+  }
 }

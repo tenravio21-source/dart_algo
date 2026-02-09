@@ -11,4 +11,23 @@ class Bubble {
     }
     return myList;
   }
+
+  static List<int> bubbleSortOptimized(List<int> myList) {
+    for (int i = myList.length - 1; i > 0; i--) {
+      bool swapped = false; // Track if a swap happened
+
+      for (int j = 0; j < i; j++) {
+        if (myList[j] > myList[j + 1]) {
+          int temp = myList[j];
+          myList[j] = myList[j + 1];
+          myList[j + 1] = temp;
+          swapped = true;
+        }
+      }
+
+      // If no two elements were swapped by inner loop, then break
+      if (!swapped) break;
+    }
+    return myList;
+  }
 }

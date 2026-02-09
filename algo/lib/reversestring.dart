@@ -16,4 +16,17 @@ class ReverseString {
 
     return reversed;
   }
+
+  static String reverseV3(String str) {
+    // We work with a list of codes (numbers) which is much faster than strings
+    List<int> codes = str.codeUnits;
+    // Create a list with the same length
+    List<int> reversedCodes = List.filled(codes.length, 0);
+
+    for (int i = 0; i < codes.length; i++) {
+      reversedCodes[i] = codes[codes.length - 1 - i];
+    }
+
+    return String.fromCharCodes(reversedCodes);
+  }
 }

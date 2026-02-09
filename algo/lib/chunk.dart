@@ -24,4 +24,16 @@ class Chunk {
 
     return chunked;
   }
+
+  static List<List<T>> chunkV3<T>(List<T> list, int size) {
+    List<List<T>> chunked = [];
+
+    for (int i = 0; i < list.length; i += size) {
+      // Jump i by the 'size' each time
+      int end = (i + size < list.length) ? i + size : list.length;
+      chunked.add(list.sublist(i, end));
+    }
+
+    return chunked;
+  }
 }

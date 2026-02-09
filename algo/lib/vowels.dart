@@ -22,4 +22,22 @@ class Vowels {
     }
     return count;
   }
+
+  static int countVowelsPro(String str) {
+    const vowels = {
+      'a',
+      'e',
+      'i',
+      'o',
+      'u',
+    }; // A Set is faster for lookups than a String
+    int count = 0;
+
+    for (int i = 0; i < str.length; i++) {
+      if (vowels.contains(str[i].toLowerCase())) {
+        count++;
+      }
+    }
+    return count;
+  }
 }

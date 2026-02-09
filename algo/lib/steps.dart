@@ -19,4 +19,20 @@ class Steps {
 
     return result;
   }
+
+  static List<String> buildV2(int n) {
+    return List.generate(n, (row) {
+      // For each row, create a string of length n
+      return List.generate(n, (col) => col <= row ? '#' : ' ').join();
+    });
+  }
+
+  static List<String> buildV3(int n) {
+    List<String> result = [];
+    for (int i = 1; i <= n; i++) {
+      // Repeat '#' i times, then repeat ' ' (n-i) times
+      result.add(('#' * i).padRight(n));
+    }
+    return result;
+  }
 }

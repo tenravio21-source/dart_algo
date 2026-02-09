@@ -23,4 +23,32 @@ class Capitalize {
     }
     return words.join(' ');
   }
+
+  static String capitalizeV3(String str) {
+    if (str.isEmpty) return str;
+
+    return str
+        .split(' ')
+        .map((word) {
+          if (word.isEmpty) return word;
+          return word[0].toUpperCase() + word.substring(1).toLowerCase();
+        })
+        .join(' ');
+  }
+
+  static String capitalizePro(String str) {
+    if (str.isEmpty) return str;
+
+    final buffer = StringBuffer();
+    buffer.write(str[0].toUpperCase());
+
+    for (int i = 1; i < str.length; i++) {
+      if (str[i - 1] == ' ') {
+        buffer.write(str[i].toUpperCase());
+      } else {
+        buffer.write(str[i]);
+      }
+    }
+    return buffer.toString();
+  }
 }

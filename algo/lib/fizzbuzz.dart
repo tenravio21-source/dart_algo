@@ -10,4 +10,14 @@ class Fizzbuzz {
       return n.toString();
     }
   }
+
+  static String fizzbuzzV2(int n) {
+    String result = "";
+
+    if (n % 3 == 0) result += "fizz";
+    if (n % 5 == 0) result += "buzz";
+
+    // If the string is still empty, the number wasn't divisible by 3 or 5
+    return result.isEmpty ? n.toString() : result;
+  }
 }
