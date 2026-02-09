@@ -35,4 +35,42 @@ class AnagramsTools {
     }
     return charMap;
   }
+
+  List<int> countLetters(String s) {
+    List<int> letters = List.filled(26, 0);
+    for (int i = 0; i < s.length; i++) {
+      letters[s.codeUnitAt(i) - 'a'.codeUnitAt(0)]++;
+    }
+    return letters;
+  }
+
+  bool isAnagram(String s, String t) {
+    if (s.length != t.length) return false;
+    final countS = countLetters(s);
+    final countT = countLetters(t);
+
+    for (int i = 0; i < countS.length; i++) {
+      if (countS[i] != countT[i]) {
+        return false;
+      }
+    }
+    return true;
+  }
+
+  bool isAnagramV2(String s, String t) {
+    if (s.length != t.length) return false;
+
+    // Use a single frequency list
+    final List<int> counts = List.filled(26, 0);
+    final int codeA = 'a'.codeUnitAt(0);
+
+    // Increment for s, decrement for t in the same loop
+    for (int i = 0; i < s.length; i++) {
+      counts[s.codeUnitAt(i) - codeA]++;
+      counts[t.codeUnitAt(i) - codeA]--;
+    }
+
+    // If they are anagrams, every slot must be 0
+    return counts.every((count) => count == 0);
+  }
 }
